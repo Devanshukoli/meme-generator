@@ -8,6 +8,18 @@ const Main = () => {
     imageUrl: "http://i.imgflip.com/1bij.jpg"
   })
 
+  const handleChange = (event) => {
+    const { value, name } = event.currentTarget
+
+    setMemeInputs(prevMeme => (
+      {
+        ...prevMeme,
+        [name]: value
+      }
+    ))
+
+  }
+
   return (
     <>
       <main>
@@ -15,24 +27,28 @@ const Main = () => {
           <label>Top Text
             <input
               type="text"
-              placeholder={memeInputs.topText}
+              placeholder="One does not simply"
               name="topText"
+              onChange={handleChange}
+              value={memeInputs.topText}
             />
           </label>
 
           <label>Bottom Text
             <input
               type="text"
-              placeholder={memeInputs.bottomText}
+              placeholder="walk into modor"
               name="bottomText"
+              onChange={handleChange}
+              value={memeInputs.bottomText}
             />
           </label>
           <button>Get a new meme image 🖼</button>
         </div>
         <div className="meme">
           <img src={memeInputs.imageUrl} />
-          <span className="top">One does not simply</span>
-          <span className="bottom">Walk into Mordor</span>
+          <span className="top">{memeInputs.topText}</span>
+          <span className="bottom">{memeInputs.bottomText}</span>
         </div>
       </main>
     </>
