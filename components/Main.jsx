@@ -18,6 +18,16 @@ const Main = () => {
       })
   }, [])
 
+  const handleImageClick = () => {
+    const randomNumber = Math.floor(Math.random() * allMemes.length)
+    const randomImage = allMemes[randomNumber].url
+
+    setMemeInputs(prevMeme => ({
+      ...prevMeme,
+      imageUrl: randomImage
+    }))
+  }
+
   const handleChange = (event) => {
     const { value, name } = event.currentTarget
 
@@ -53,7 +63,7 @@ const Main = () => {
               value={memeInputs.bottomText}
             />
           </label>
-          <button>Get a new meme image 🖼</button>
+          <button onClick={handleImageClick}>Get a new meme image 🖼</button>
         </div>
         <div className="meme">
           <img src={memeInputs.imageUrl} />
