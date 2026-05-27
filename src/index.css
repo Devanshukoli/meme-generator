@@ -104,3 +104,30 @@ main {
 .top {
     top: 0;
 }
+
+.copy-controls {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}
+
+.copy-button {
+    border-radius: 5px;
+    border: none;
+    padding: 8px 12px;
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    color: white;
+    cursor: pointer;
+}
+
+.copy-button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.copy-status {
+    font-size: 0.9rem;
+    color: #222;
+}
